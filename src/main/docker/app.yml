@@ -1,0 +1,22 @@
+version: '2'
+services:
+  pizzastore-app:
+    image: pizzastore
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://pizzastore-mysql:3306/pizzastore?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+      - SPRING_DATA_JEST_URI=http://pizzastore-elasticsearch:9200
+      - SPRING_ELASTICSEARCH_REST_URIS=http://pizzastore-elasticsearch:9200
+    ports:
+      - 8080:8080
+  pizzastore-mysql:
+    extends:
+      file: mysql.yml
+      service: pizzastore-mysql
+  pizzastore-elasticsearch:
+    extends:
+      file: elasticsearch.yml
+      service: pizzastore-elasticsearch
