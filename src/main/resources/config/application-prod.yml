@@ -6,7 +6,8 @@
 # More information on profiles: https://www.jhipster.tech/profiles/
 # More information on configuration properties: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
-
+# url: jdbc:mysql://35.199.39.96:3306/pizzastore?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+# url: 'jdbc:mysql://google/pizza_store?cloudSqlInstance=ody-offer-letter:us-east4:offer-letter-sql&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false&allowPublicKeyRetrieval=false'
 # ===================================================================
 # Standard Spring Boot properties.
 # Full reference is available at:
@@ -33,9 +34,9 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/pizzastore?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-    username: root
-    password:
+    url: jdbc:mysql:///35.199.39.96:3600/pizza_store?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+    username: pizzaAdmin
+    password: 1234qwer!@#$QWER
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -62,11 +63,11 @@ spring:
       hibernate.query.in_clause_parameter_padding: true
   data:
     jest:
-      uri: http://localhost:9200
+      uris: http://pizzastore-elasticsearch.pizza-store.svc.cluster.local:9200
   # see https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-nosql.html#boot-features-connecting-to-elasticsearch-jest
   elasticsearch:
     rest:
-      uris: http://localhost:9200
+      uris: http://pizzastore-elasticsearch.pizza-store.svc.cluster.local:9200
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: prod
@@ -126,7 +127,8 @@ jhipster:
         # - In the JHipster Registry (which includes a Spring Cloud Config server)
         # - In a separate `application-prod.yml` file, in the same folder as your executable JAR file
         # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-        base64-secret: MjUxZjdhYzlmNjRiZmJkNWI3M2I0MTIxMDI0Njk1NzNlODdmZDg1MWI1YzI0NzllMmI1OGE2MzllZGZkMzQxMjExOTcwODkyOGFhYjE5ZjgyZTliZTg5OGQ1OTdkYzUzZmNmMTk5MjViMWU2M2NhYzhjZjk4MGEzY2ExYjNkMDA=
+        #base64-secret: MjUxZjdhYzlmNjRiZmJkNWI3M2I0MTIxMDI0Njk1NzNlODdmZDg1MWI1YzI0NzllMmI1OGE2MzllZGZkMzQxMjExOTcwODkyOGFhYjE5ZjgyZTliZTg5OGQ1OTdkYzUzZmNmMTk5MjViMWU2M2NhYzhjZjk4MGEzY2ExYjNkMDA=
+        base64-secret: eBmZgiKN9fsNIlnKlY4loj36YnDjug1sP9MXzc/XB7PxkZ3WCCFqEXZcr1lO/6ZTkn9aBqM/qYsnwze/n5Tm0A==
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000
@@ -134,14 +136,14 @@ jhipster:
     base-url: http://my-server-url-to-change # Modify according to your server's URL
   metrics:
     logs: # Reports metrics in the logs
-      enabled: false
+      enabled: true
       report-frequency: 60 # in seconds
   logging:
-    use-json-format: false # By default, logs are not in Json format
+    use-json-format: true # By default, logs are not in Json format
     logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
-      enabled: false
-      host: localhost
-      port: 5000
+      enabled: true
+      host: val.odysseysystems.net
+      port: 5001
       queue-size: 512
   audit-events:
     retention-period: 30 # Number of days before audit events are deleted.

@@ -1,0 +1,31 @@
+{
+    "name": "Invoice",
+    "fields": [
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "orderplaced",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pizza",
+            "otherEntityRelationshipName": "invoice",
+            "relationshipName": "pizza"
+        }
+    ],
+    "changelogDate": "20200107171009",
+    "entityTableName": "invoice",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

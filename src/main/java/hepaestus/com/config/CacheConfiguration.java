@@ -42,6 +42,12 @@ public class CacheConfiguration {
             createCache(cm, hepaestus.com.domain.User.class.getName());
             createCache(cm, hepaestus.com.domain.Authority.class.getName());
             createCache(cm, hepaestus.com.domain.User.class.getName() + ".authorities");
+            createCache(cm, hepaestus.com.domain.Customer.class.getName());
+            createCache(cm, hepaestus.com.domain.Invoice.class.getName());
+            createCache(cm, hepaestus.com.domain.Invoice.class.getName() + ".pizzas");
+            createCache(cm, hepaestus.com.domain.Pizza.class.getName());
+            createCache(cm, hepaestus.com.domain.Pizza.class.getName() + ".toppings");
+            createCache(cm, hepaestus.com.domain.Toppings.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
