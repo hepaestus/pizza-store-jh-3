@@ -1,0 +1,40 @@
+
+entity Customer {
+  name String,
+  price BigDecimal required,
+  description String,
+  image ImageBlob
+}
+
+entity Invoice {
+  phone String,
+  orderplaced LocalDate
+}
+
+entity Pizza {
+  name String,
+  description String,
+  price BigDecimal required min(0),
+  image ImageBlob,
+  size Size required
+}
+
+entity Toppings {
+  name String required,
+  description String,
+  price BigDecimal required min(0)
+}
+
+enum Size {
+  S,
+  M,
+  L,
+  XL,
+  XXL
+}
+
+relationship OneToMany {
+  Invoice{pizza} to Pizza{invoice},
+  Pizza{toppings} to Toppings{pizza}
+}
+
