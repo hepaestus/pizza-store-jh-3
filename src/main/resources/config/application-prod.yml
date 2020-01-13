@@ -63,11 +63,15 @@ spring:
       hibernate.query.in_clause_parameter_padding: true
   data:
     jest:
-      uris: http://pizzastore-elasticsearch.pizza-store.svc.cluster.local:9200
+      uris: https://d2e9580282fd4dsfsdf75a0e9517bcf2b1a03.us-central1.gcp.cloud.es.io:9243
+      password: dcsXwslfj3RK3G8I4QHmsyjUq
+      username: elastic
   # see https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-nosql.html#boot-features-connecting-to-elasticsearch-jest
   elasticsearch:
     rest:
-      uris: http://pizzastore-elasticsearch.pizza-store.svc.cluster.local:9200
+      uris: https://d2e95803G82dfsdfd4075a0e9517bcf2b1a03.us-central1.gcp.cloud.es.io:9243
+      password: dcsXwslfj3RK3G8I4QHmsyjUq
+      username: elastic
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: prod
@@ -141,7 +145,7 @@ jhipster:
   logging:
     use-json-format: true # By default, logs are not in Json format
     logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
-      enabled: true
+      enabled: false
       host: val.odysseysystems.net
       port: 5001
       queue-size: 512
